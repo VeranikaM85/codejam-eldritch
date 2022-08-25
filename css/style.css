@@ -53,7 +53,9 @@ body {
     background-size: cover;
     background-image: cover;
 }
-
+.two{
+    display: none;
+}
 .pack-face{
     display: flex;
     flex-direction: row;

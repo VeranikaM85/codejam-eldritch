@@ -34,6 +34,10 @@ body {
     margin-right: 50px;
 }
 .pack,
+.pack1,
+.pack-hard,
+.pack-easy-hard,
+.pack-medium-easy,
 .face{
     cursor: pointer;
     width: 443px;
@@ -41,6 +45,10 @@ body {
     margin-right: 50px;
 }
 .pack,
+.pack1,
+.pack-hard,
+.pack-easy-hard,
+.pack-medium-easy,
 .face{
     background-size: cover;
     background-image: cover;
@@ -117,7 +125,7 @@ body {
     margin-left: 50px;
     margin-right: 50px;
     width: 200px;
-    height: 70px;
+    height: 100px;
     margin-top: 50px;
     font-size: 2.0rem;
     cursor: pointer;

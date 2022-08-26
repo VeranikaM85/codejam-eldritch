@@ -43,6 +43,7 @@ body {
     width: 443px;
     height: 574px;
     margin-right: 50px;
+    background-image: url(https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/mythicCardBackground.png);
 }
 .pack,
 .pack1,

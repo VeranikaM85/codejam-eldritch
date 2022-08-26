@@ -31,6 +31,11 @@ function cards(){
     img4.onload = () => {document.getElementsByClassName('ancients')[3].style.backgroundImage = url4}
 }
 cards()
+let text = document.querySelector('.text') //для удобства проверки
+document.querySelector('.one-card').style.display = 'none';
+document.querySelector('.two-card').style.display = 'none';
+document.querySelector('.three-card').style.display = 'none';
+document.querySelector('.four-card').style.display = 'none';
 
 const stage = document.querySelector('.stage')
 const packCard = document.querySelectorAll('.pack')
@@ -171,6 +176,7 @@ function levelGame(){
         document.getElementsByClassName('pack-hard')[0].style.display = 'none';
         document.getElementsByClassName('pack-easy-hard')[0].style.display = 'none';
         document.getElementsByClassName('pack-medium-easy')[0].style.display = 'none';
+        text.classList.add('display-none')
         buttonRandom.classList.remove('display-none')//прячем кнопку для замешивания
         buttonRandom.classList.remove('check')//убираем стиль с кнопки для замешивания
         easyButton.classList.add('check')//добавляем стиль кнопке легкого уровня игры
@@ -216,7 +222,7 @@ function levelGame(){
                 
     //нажимаем на кнопку замешать
         buttonRandom.addEventListener("click", ()=>{
-             console.log('1')           
+        text.classList.remove('display-none')     
         packCard.forEach(packCard => {packCard.classList.remove('display-none');})
         packCard1.forEach(packCard => {packCard.classList.add('display-none');})
         packCardHard.forEach(packCard => {packCard.classList.add('display-none');})
@@ -265,12 +271,14 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[0].style.backgroundImage = url}
         })
-        console.log(random)
+        text.textContent=random.map(u => u.colour).join(', ')
     })
     }) 
+    
                 
     //включаем просто легкую игру
         mediumEasyButton.addEventListener("click", ()=>{ //нажав на кнопку 
+        text.classList.add('display-none')
         const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult !== 'hard');//фильтруем сложные
         const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult !== 'hard');
         const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult !== 'hard');
@@ -296,6 +304,7 @@ function levelGame(){
                 
     //нажимаем на кнопку замешать
         buttonRandom.addEventListener("click", ()=>{
+        text.classList.remove('display-none')    
         packCard.forEach(packCard => {packCard.classList.add('display-none');})
         packCard1.forEach(packCard => {packCard.classList.add('display-none');})
         packCardHard.forEach(packCard => {packCard.classList.add('display-none');})
@@ -344,12 +353,13 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[0].style.backgroundImage = url}
         })
-        console.log(random)
+        text.textContent=random.map(u => u.colour).join(', ')
         })
     }) 
                 
     //включаем среднюю игру
     mediumButton.addEventListener("click", ()=>{ //нажав на кнопку  - средние
+    text.classList.add('display-none')
     document.getElementsByClassName('face')[0].classList.add('display-none')
     document.getElementsByClassName('pack')[0].style.display = 'none'
     document.getElementsByClassName('pack1')[0].style.display = 'block'
@@ -375,6 +385,7 @@ function levelGame(){
                     
     //нажимаем на кнопку замешать
     buttonRandom.addEventListener("click",()=>{
+    text.classList.remove('display-none')     
     buttonRandom.classList.add('check')    
     packCard.forEach(packCard => {packCard.classList.add('display-none');})
     packCard1.forEach(packCard => {packCard.classList.remove('display-none');})
@@ -423,12 +434,13 @@ function levelGame(){
     let url = `url(${img.src})`
     img.onload = () => {document.getElementsByClassName('face')[0].style.backgroundImage = url}
     })
-    console.log(arr)      
+    text.textContent=random.map(u => u.colour).join(', ')
     })
     })  
                 
     //включаем просто сложную игру
     easyHardButton.addEventListener("click", ()=>{ //нажав на кнопку  - очень сложно
+    text.classList.add('display-none')
     const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult !== 'easy');//фильтруем сложные
     const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult !== 'easy');
     const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult !== 'easy');
@@ -454,6 +466,7 @@ function levelGame(){
                 
      //нажимаем на кнопку замешать
     buttonRandom.addEventListener("click", ()=>{
+    text.classList.remove('display-none')
     packCard.forEach(packCard => {packCard.classList.add('display-none');})
     packCard1.forEach(packCard => {packCard.classList.add('display-none');})
     packCardHard.forEach(packCard => {packCard.classList.add('display-none');})
@@ -502,12 +515,13 @@ function levelGame(){
     let url = `url(${img.src})`
     img.onload = () => {document.getElementsByClassName('face')[0].style.backgroundImage = url}
     })
-    console.log(arr)
+    text.textContent=random.map(u => u.colour).join(', ')
     })
     }) 
                 
     //включаем очень сложную игру
     hardButton.addEventListener("click", ()=>{ //нажав на кнопку  - очень сложно
+    text.classList.add('display-none')
     const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult === 'hard');//фильтруем сложные
     const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult === 'hard');
     const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult === 'hard');
@@ -562,6 +576,7 @@ function levelGame(){
                 
     //нажимаем на кнопку замешать
         buttonRandom.addEventListener("click",()=>{
+        text.classList.remove('display-none')
         packCard.forEach(packCard => {packCard.classList.add('display-none');})
         packCard1.forEach(packCard => {packCard.classList.add('display-none');})
         packCardHard.forEach(packCard => {packCard.classList.remove('display-none');})
@@ -610,7 +625,7 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[0].style.backgroundImage = url}
         })
-        console.log(arr)
+        text.textContent=random.map(u => u.colour).join(', ')
     })
     }) 
 }
@@ -696,6 +711,7 @@ function levelGame(){
 
     //включаем очень легкую игру
         easyButton.addEventListener("click", ()=>{ //нажав на кнопку  - легкие
+        text.classList.add('display-none')
         const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult === 'easy');//фильтруем легке
         const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult === 'easy');
         const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult === 'easy');
@@ -750,7 +766,7 @@ function levelGame(){
                 
     //нажимаем на кнопку замешать
         buttonRandom.addEventListener("click", ()=>{
-             console.log('1')           
+        text.classList.remove('display-none')
         packCard.forEach(packCard => {packCard.classList.remove('display-none');})
         packCard1.forEach(packCard => {packCard.classList.add('display-none');})
         packCardHard.forEach(packCard => {packCard.classList.add('display-none');})
@@ -799,12 +815,13 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[1].style.backgroundImage = url}
         })
-        console.log(random)
+        text.textContent=random.map(u => u.colour).join(', ')
     })
     }) 
                 
     //включаем просто легкую игру
         mediumEasyButton.addEventListener("click", ()=>{ //нажав на кнопку 
+        text.classList.add('display-none')
         const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult !== 'hard');//фильтруем сложные
         const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult !== 'hard');
         const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult !== 'hard');
@@ -830,6 +847,7 @@ function levelGame(){
                 
     //нажимаем на кнопку замешать
         buttonRandom.addEventListener("click", ()=>{
+        text.classList.remove('display-none')
         packCard.forEach(packCard => {packCard.classList.add('display-none');})
         packCard1.forEach(packCard => {packCard.classList.add('display-none');})
         packCardHard.forEach(packCard => {packCard.classList.add('display-none');})
@@ -878,12 +896,13 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[1].style.backgroundImage = url}
         })
-        console.log(random)
+        text.textContent=random.map(u => u.colour).join(', ')
         })
     }) 
                 
     //включаем среднюю игру
     mediumButton.addEventListener("click", ()=>{ //нажав на кнопку  - средние
+    text.classList.add('display-none')
     document.getElementsByClassName('face')[1].classList.add('display-none')
     document.getElementsByClassName('pack')[1].style.display = 'none'
     document.getElementsByClassName('pack1')[1].style.display = 'block'
@@ -909,6 +928,7 @@ function levelGame(){
                     
     //нажимаем на кнопку замешать
     buttonRandom.addEventListener("click",()=>{
+    text.classList.remove('display-none')
     buttonRandom.classList.add('check')    
     packCard.forEach(packCard => {packCard.classList.add('display-none');})
     packCard1.forEach(packCard => {packCard.classList.remove('display-none');})
@@ -957,12 +977,13 @@ function levelGame(){
     let url = `url(${img.src})`
     img.onload = () => {document.getElementsByClassName('face')[1].style.backgroundImage = url}
     })
-    console.log(arr)      
+    text.textContent=random.map(u => u.colour).join(', ')
     })
     })  
                 
     //включаем просто сложную игру
     easyHardButton.addEventListener("click", ()=>{ //нажав на кнопку  - очень сложно
+    text.classList.add('display-none')
     const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult !== 'easy');//фильтруем сложные
     const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult !== 'easy');
     const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult !== 'easy');
@@ -988,6 +1009,7 @@ function levelGame(){
                 
      //нажимаем на кнопку замешать
     buttonRandom.addEventListener("click", ()=>{
+    text.classList.remove('display-none')
     packCard.forEach(packCard => {packCard.classList.add('display-none');})
     packCard1.forEach(packCard => {packCard.classList.add('display-none');})
     packCardHard.forEach(packCard => {packCard.classList.add('display-none');})
@@ -1036,12 +1058,13 @@ function levelGame(){
     let url = `url(${img.src})`
     img.onload = () => {document.getElementsByClassName('face')[1].style.backgroundImage = url}
     })
-    console.log(arr)
+    text.textContent=random.map(u => u.colour).join(', ')
     })
     }) 
                 
     //включаем очень сложную игру
     hardButton.addEventListener("click", ()=>{ //нажав на кнопку  - очень сложно
+    text.classList.add('display-none')
     const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult === 'hard');//фильтруем сложные
     const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult === 'hard');
     const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult === 'hard');
@@ -1096,6 +1119,7 @@ function levelGame(){
                 
     //нажимаем на кнопку замешать
         buttonRandom.addEventListener("click",()=>{
+        text.classList.remove('display-none')
         packCard.forEach(packCard => {packCard.classList.add('display-none');})
         packCard1.forEach(packCard => {packCard.classList.add('display-none');})
         packCardHard.forEach(packCard => {packCard.classList.remove('display-none');})
@@ -1144,7 +1168,7 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[1].style.backgroundImage = url}
         })
-        console.log(arr)
+        text.textContent=random.map(u => u.colour).join(', ')
     })
     }) 
 }
@@ -1284,7 +1308,6 @@ function levelGame(){
                 
     //нажимаем на кнопку замешать
         buttonRandom.addEventListener("click", ()=>{
-             console.log('1')           
         packCard.forEach(packCard => {packCard.classList.remove('display-none');})
         packCard1.forEach(packCard => {packCard.classList.add('display-none');})
         packCardHard.forEach(packCard => {packCard.classList.add('display-none');})
@@ -1491,7 +1514,7 @@ function levelGame(){
     let url = `url(${img.src})`
     img.onload = () => {document.getElementsByClassName('face')[2].style.backgroundImage = url}
     })
-    console.log(arr)      
+    console.log(random)      
     })
     })  
                 
@@ -1570,7 +1593,7 @@ function levelGame(){
     let url = `url(${img.src})`
     img.onload = () => {document.getElementsByClassName('face')[2].style.backgroundImage = url}
     })
-    console.log(arr)
+    console.log(random)
     })
     }) 
                 
@@ -1678,7 +1701,7 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[2].style.backgroundImage = url}
         })
-        console.log(arr)
+        console.log(random)
     })
     }) 
 }
@@ -1817,7 +1840,6 @@ function levelGame(){
                 
     //нажимаем на кнопку замешать
         buttonRandom.addEventListener("click", ()=>{
-             console.log('1')           
         packCard.forEach(packCard => {packCard.classList.remove('display-none');})
         packCard1.forEach(packCard => {packCard.classList.add('display-none');})
         packCardHard.forEach(packCard => {packCard.classList.add('display-none');})
@@ -2024,7 +2046,7 @@ function levelGame(){
     let url = `url(${img.src})`
     img.onload = () => {document.getElementsByClassName('face')[3].style.backgroundImage = url}
     })
-    console.log(arr)      
+    console.log(random)      
     })
     })  
                 
@@ -2103,7 +2125,7 @@ function levelGame(){
     let url = `url(${img.src})`
     img.onload = () => {document.getElementsByClassName('face')[3].style.backgroundImage = url}
     })
-    console.log(arr)
+    console.log(random)
     })
     }) 
                 
@@ -2211,7 +2233,7 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[3].style.backgroundImage = url}
         })
-        console.log(arr)
+        console.log(random)
     })
     }) 
 }

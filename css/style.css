@@ -18,6 +18,11 @@ body {
     background: center/cover, rgba(0, 0, 0, 0.4);
     background-image: cover;
 }
+.center{
+    justify-content: center;
+    display: flex;
+    
+}
 .wrapper-all{
     width:100%;
     display: flex;
@@ -32,6 +37,14 @@ body {
     width: 443px;
     height: 574px;
     margin-right: 50px;
+}
+.all-cards,
+.pack-face{
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 150px;
+    margin-top: 75px;
 }
 .pack,
 .pack1,
@@ -54,12 +67,19 @@ body {
     background-size: cover;
     background-image: cover;
 }
+.face{
+    margin-top: 150px;
+}
+.text{
+    color: #fff;
+    font-size: 2.0rem;
+    width: 100%;
+    height: 200px;
+    line-height: 200px;
+    background-color: rgba(99, 0, 122, 0.3)
+}
 .two{
     display: none;
-}
-.pack-face{
-    display: flex;
-    flex-direction: row;
 }
 .pack-all{
     display: flex;
@@ -68,10 +88,14 @@ body {
 .wrapper{
     display: flex;
     flex-direction: row;
-    margin: 50px;
+    margin: 150px;
 }
 .check{
-    border: 10px solid #8000a3;
+
+box-shadow:  0 0 10px 4px #fff,
+0 0 95px 5px rgb(99, 0, 122),
+0 0 30px 18px rgb(249, 249, 249);
+
 }
 .wrapper-stage-all{
     width: 400px;
@@ -80,16 +104,22 @@ body {
     opacity: 0;
 }
 .stage{
+    width: 600px;
+    height: 600px;
     display: flex;
     flex-direction: column;
-    margin: 50px;
+    margin-top: 500px;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-image: cover;
+    background-image: url("../assets/img/bg1.png");
 }
 
 .stage1{
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 50px;
-    color: #fff;
+    color: rgb(0, 0, 0);
     font-size: 2.2rem;
     text-align: center;
     line-height: 50px;
@@ -111,25 +141,31 @@ body {
     margin-right: 20px;
 }
 .green{
-    background-color: green;
+    background-color: #3F6022
 }
 .brown{
-    background-color: brown;
+    background-color:#B19323;
 }
 .blue{
-    background-color: blue;
+    background-color: #4C5CA7;
 }
 .button-all{
     display: flex;
     flex-direction: column;
+    margin-top: 120px;
+}
+.for-check{
+    width: 1000px;
+    height: 200px;
+    background-color: #fff;
 }
 .button,
 .button-random{
     margin-left: 50px;
     margin-right: 50px;
-    width: 200px;
+    width: 400px;
     height: 100px;
-    margin-top: 50px;
+    margin-top: 110px;
     font-size: 2.0rem;
     cursor: pointer;
 }
@@ -137,6 +173,6 @@ body {
     opacity: 0;
 }
 .button:first-child{
-    background-color: #8000a3;
+    background-color: #bf5eff;
     color: #fff;
 }

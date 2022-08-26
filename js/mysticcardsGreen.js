@@ -1,91 +1,91 @@
 const mysticcardsGreen = [
     {      
-      colour: 'green',
+      colour: 'green1 easy',
       src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green1.png',
       difficult: 'easy'
     },  
     {      
-        colour: 'green',
+        colour: 'green2 hard',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green2.png',
         difficult: 'hard'
       },  
       {      
-        colour: 'green',
+        colour: 'green3 hard',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green3.png',
         difficult: 'hard'
       },  
       {      
-        colour: 'green',
+        colour: 'green4 hard',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green4.png',
         difficult: 'hard'
       },  
       {      
-        colour: 'green',
+        colour: 'green5 hard',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green5.png',
         difficult: 'hard'
       },  
       {      
-        colour: 'green',
+        colour: 'green6 hard',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green6.png',
         difficult: 'hard'
       },  
       {      
-        colour: 'green',
+        colour: 'green7 medium',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green7.png',
         difficult: 'medium'
       },  
       {      
-        colour: 'green',
+        colour: 'green8 medium',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green8.png',
         difficult: 'medium'
       },  
       {      
-        colour: 'green',
+        colour: 'green9 medium',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green9.png',
         difficult: 'medium'
       },  
       {      
-        colour: 'green',
+        colour: 'green10 medium',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green10.png',
         difficult: 'medium'
       },  
       {      
-        colour: 'green',
+        colour: 'green11 medium',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green11.png',
         difficult: 'medium'
       },  
       {      
-        colour: 'green',
+        colour: 'green12 easy',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green12.png',
         difficult: 'easy'
       },
       {      
-        colour: 'green',
+        colour: 'green13 medium',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green13.png',
         difficult: 'medium'
       },
       {      
-        colour: 'green',
+        colour: 'green14 medium',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green14.png',
         difficult: 'medium'
       },
       {      
-        colour: 'green',
+        colour: 'green15 medium',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green15.png',
         difficult: 'medium'
       },
       {      
-        colour: 'green',
+        colour: 'green16 easy',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green16.png',
         difficult: 'easy'
       } ,
       {      
-        colour: 'green',
+        colour: 'green17 easy',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green17.png',
         difficult: 'easy'
       },
       {      
-        colour: 'green',
+        colour: 'green18 easy',
         src: 'https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/MythicCards/green/green18.png',
         difficult: 'easy'
       }                              

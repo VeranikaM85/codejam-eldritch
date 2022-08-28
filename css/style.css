@@ -199,7 +199,7 @@ button:disabled{
 .button-all{
     display: flex;
     flex-direction: column;
-    margin-top: 120px;
+    margin-top: 85px;
 }
 .for-check{
     width: 1000px;
@@ -212,7 +212,7 @@ button:disabled{
     margin-right: 50px;
     width: 400px;
     height: 100px;
-    margin-top: 110px;
+    margin-top: 90px;
     font: 700 2.2rem 'Philosopher', sans-serif;
     cursor: pointer;
 }

@@ -1,17 +1,12 @@
-@font-face {
-    font-family: 'Arial-MT';
-    src: url("../assets/fonts/Arial-MT.woff");
-}
-  
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 body {
+    font-family: 'Philosopher', sans-serif;
     min-width: 360px;
     height: 100vh;
-    font-family: 'Arial', sans-serif;
     font-size: 10px;
     color: #fff;
     text-align: center;
@@ -58,6 +53,7 @@ body {
     margin-right: 50px;
     background-image: url(https://raw.githubusercontent.com/VeranikaM85/eldritch-codejam/main/assets/mythicCardBackground.png);
 }
+
 .pack,
 .pack1,
 .pack-hard,
@@ -71,12 +67,13 @@ body {
     margin-top: 150px;
 }
 .text{
+
     color: #fff;
-    font-size: 2.0rem;
+    font-size: 2.2rem;
     width: 100%;
-    height: 200px;
+    height: auto;
     line-height: 200px;
-    background-color: rgba(99, 0, 122, 0.3)
+    background-color: rgba(84, 43, 109, 0.3)
 }
 .two{
     display: none;
@@ -92,10 +89,52 @@ body {
 }
 .check{
 
-box-shadow:  0 0 10px 4px #fff,
-0 0 95px 5px rgb(99, 0, 122),
-0 0 30px 18px rgb(249, 249, 249);
+box-shadow:  0 0 18px 4px rgb(249, 249, 249,0.6),
+0 0 70px 30px rgb(84, 43, 109,0.7),
+0 0 35px 8px rgb(249, 249, 249, 0.9);
 
+}
+button:hover{
+    transition: 0.7s;
+    animation: animation-btn 1.1s;
+    animation-fill-mode: forwards;
+
+}
+button:active{
+    transition: 0.2s;
+    animation: animation-btnactive 0.5s;
+    animation-fill-mode: forwards;
+}
+button:disabled{
+    transition: 0.2s;
+    animation: animation-btnactive 0.5s;
+    animation-fill-mode: forwards;
+    color: #fff;
+    opacity: 0.7;
+
+}
+.contrast { filter: contrast(60%); }
+@keyframes animation-btn {   
+    0% {     
+    background-color: rgb(84, 43, 109,0.4); 
+    border: 3px solid rgb(84, 43, 109,0.4); 
+    color: #fff; 
+    }   
+    100% {
+    background-color: rgb(84, 43, 109,0.2);
+    border: 3px solid rgb(84, 43, 109,0.4);
+    color: #fff; 
+    } 
+}
+@keyframes animation-btnactive {   
+    0% {     
+    background-color: rgb(84, 43, 109,0.2);
+    border: 3px solid rgb(84, 43, 109,0.4);   
+    }   
+    100% {
+    background-color: rgb(84, 43, 109,0.2);
+    border: 3px solid rgb(84, 43, 109,0.4);
+    } 
 }
 .wrapper-stage-all{
     width: 400px;
@@ -119,8 +158,8 @@ box-shadow:  0 0 10px 4px #fff,
     margin-left: 50px;
     margin-right: 50px;
     margin-top: 50px;
-    color: rgb(0, 0, 0);
-    font-size: 2.2rem;
+    color: #4b3300;
+    font: 700 2.4rem 'Philosopher', sans-serif;
     text-align: center;
     line-height: 50px;
 }
@@ -133,12 +172,14 @@ box-shadow:  0 0 10px 4px #fff,
 .green,
 .brown,
 .blue{
-    width: 50px;
+    width: 80px;
     height: 50px;
-    border-radius: 100px;
+    border-radius: 10px;
     color: #fff;
-    font-size: 1.6rem;
-    margin-right: 20px;
+    font: 700 1.8rem 'Philosopher', sans-serif;
+    margin-right: 15px;
+    margin-left: 15px;
+    line-height: 50px;
 }
 .green{
     background-color: #3F6022
@@ -166,13 +207,15 @@ box-shadow:  0 0 10px 4px #fff,
     width: 400px;
     height: 100px;
     margin-top: 110px;
-    font-size: 2.0rem;
+    font: 700 2.2rem 'Philosopher', sans-serif;
     cursor: pointer;
 }
 .display-none{
     opacity: 0;
 }
-.button:first-child{
-    background-color: #bf5eff;
-    color: #fff;
+button{
+    color:#fff;
+    background-color: rgb(84, 43, 109,0.5);
+    border-radius: 5px;
+    border: 3px solid rgb(84, 43, 109, 0.7);
 }

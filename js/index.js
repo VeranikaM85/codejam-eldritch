@@ -91,9 +91,21 @@ function randomBrown (){
          w[currentIndexBrown] = w[randomIndex];
          w[randomIndex] = temporaryValue;}     
     return mysticcardsBrown}    
+function tracker(){
+    if(document.querySelector('.blue1').textContent!=='0'){document.querySelector('.blue1').textContent=document.querySelector('.blue1').textContent-1;}
+    else if(document.querySelector('.blue1').textContent==='0' && document.querySelector('.brown1').textContent!=='0'){document.querySelector('.brown1').textContent=document.querySelector('.brown1').textContent-1;}
+    else if(document.querySelector('.blue1').textContent==='0' && document.querySelector('.brown1').textContent==='0' && document.querySelector('.green1').textContent!=='0'){document.querySelector('.green1').textContent=document.querySelector('.green1').textContent-1;}
+    else if(document.querySelector('.green1').textContent==='0' && document.querySelector('.brown1').textContent==='0' && document.querySelector('.blue2').textContent!=='0'){document.querySelector('.blue2').textContent=document.querySelector('.blue2').textContent-1;}
+    else if(document.querySelector('.green1').textContent==='0' && document.querySelector('.blue2').textContent==='0' && document.querySelector('.brown2').textContent!=='0'){document.querySelector('.brown2').textContent=document.querySelector('.brown2').textContent-1;}
+    else if(document.querySelector('.brown2').textContent==='0' && document.querySelector('.blue2').textContent==='0' && document.querySelector('.green2').textContent!=='0'){document.querySelector('.green2').textContent=document.querySelector('.green2').textContent-1;}
+    else if(document.querySelector('.brown2').textContent==='0' && document.querySelector('.green2').textContent==='0' && document.querySelector('.blue3').textContent!=='0'){document.querySelector('.blue3').textContent=document.querySelector('.blue3').textContent-1;}
+    else if(document.querySelector('.blue3').textContent==='0' && document.querySelector('.green2').textContent==='0' && document.querySelector('.brown3').textContent!=='0'){document.querySelector('.brown3').textContent=document.querySelector('.brown3').textContent-1;}
+    else if(document.querySelector('.blue3').textContent==='0' && document.querySelector('.brown3').textContent==='0' && document.querySelector('.green3').textContent!=='0'){document.querySelector('.green3').textContent=document.querySelector('.green3').textContent-1;}
+}
 
 //включаем первого старца(!!!!готово)
 firstCard.addEventListener("click", () => {
+    if(firstCard .classList.contains('clicked')){firstElder()}
     document.querySelector('.one-card').style.display = 'block';
     document.querySelector('.two-card').style.display = 'none';
     document.querySelector('.three-card').style.display = 'none';
@@ -123,24 +135,15 @@ firstCard.addEventListener("click", () => {
     thirdCard.classList.remove('check')
     fourCard.classList.remove('check')
 
-    document.getElementsByClassName('green1')[0].innerHTML=1
-    let green1 = document.getElementsByClassName('green1')[0].innerHTML
-    document.getElementsByClassName('green2')[0].innerHTML=2
-    let green2 = document.getElementsByClassName('green2')[0].innerHTML
-    document.getElementsByClassName('green3')[0].innerHTML=2
-    let green3 = document.getElementsByClassName('green3')[0].innerHTML
-    document.getElementsByClassName('brown1')[0].innerHTML=2
-    let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
-    document.getElementsByClassName('brown2')[0].innerHTML=3
-    let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
-    document.getElementsByClassName('brown3')[0].innerHTML=4
-    let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
-    document.getElementsByClassName('blue1')[0].innerHTML=1
-    let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
-    document.getElementsByClassName('blue2')[0].innerHTML=1
-    let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
-    document.getElementsByClassName('blue3')[0].innerHTML=0
-    let blue3 = document.getElementsByClassName('blue3')[0].innerHTML
+    document.getElementsByClassName('green1')[0].innerHTML=1;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+    document.getElementsByClassName('green2')[0].innerHTML=2;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+    document.getElementsByClassName('green3')[0].innerHTML=2;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+    document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+    document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+    document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+    document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+    document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+    document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML
 
 //тусуем все синие
     randomBlue()          
@@ -167,6 +170,16 @@ function levelGame(){
 
     //включаем очень легкую игру
         easyButton.addEventListener("click", ()=>{ //нажав на кнопку  - легкие
+            firstCard.classList.add('clicked')
+            document.getElementsByClassName('green1')[0].innerHTML=1;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+            document.getElementsByClassName('green2')[0].innerHTML=2;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+            document.getElementsByClassName('green3')[0].innerHTML=2;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+            document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+            document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+            document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+            document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+            document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+            document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML
         const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult === 'easy');//фильтруем легке
         const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult === 'easy');
         const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult === 'easy');
@@ -185,11 +198,7 @@ function levelGame(){
         easyHardButton.classList.remove('check')
         mediumEasyButton.classList.remove('check')
         buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-        easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-        mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-        hardButton.disabled = false//
-        easyHardButton.disabled = false
-        mediumEasyButton.disabled = false
+
                 
     //проверяем хватает ли карт
         if(easyBlue.length<=sumBlue){//проверяем хватает ли синих карт
@@ -230,10 +239,6 @@ function levelGame(){
         packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
         buttonRandom.classList.add('check'); 
         buttonRandom.disabled = true;
-        mediumButton.disabled = false  
-        hardButton.disabled = false
-        easyHardButton.disabled = false
-        mediumEasyButton.disabled = false   
         easyButton.disabled = true       
                         
     let arr =[]
@@ -263,6 +268,8 @@ function levelGame(){
         var i=-1
     //открываем карты
         document.getElementsByClassName('pack')[0].addEventListener("click", () => {
+        tracker()
+             
         document.getElementsByClassName('face')[0].classList.remove('display-none')
         const img = new Image();
         if(i == random.length-1){i=random.length-1
@@ -271,13 +278,23 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[0].style.backgroundImage = url}
         })
-        text.textContent=random.map(u => u.colour).join(', ')
+        text.textContent=random.map(u => u.colour).join(',')
     })
     }) 
     
                 
     //включаем просто легкую игру
         mediumEasyButton.addEventListener("click", ()=>{ //нажав на кнопку 
+            firstCard.classList.add('clicked')
+            document.getElementsByClassName('green1')[0].innerHTML=1;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+            document.getElementsByClassName('green2')[0].innerHTML=2;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+            document.getElementsByClassName('green3')[0].innerHTML=2;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+            document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+            document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+            document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+            document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+            document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+            document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML
         text.classList.add('display-none')
         const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult !== 'hard');//фильтруем сложные
         const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult !== 'hard');
@@ -296,12 +313,7 @@ function levelGame(){
         easyHardButton.classList.remove('check')
         mediumEasyButton.classList.add('check')
         buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-        easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-        mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-        hardButton.disabled = false
-        easyHardButton.disabled = false
-        mediumEasyButton.disabled = false
-                
+                  
     //нажимаем на кнопку замешать
         buttonRandom.addEventListener("click", ()=>{
         text.classList.remove('display-none')    
@@ -312,11 +324,7 @@ function levelGame(){
         packCardMediumEasy.forEach(packCard => {packCard.classList.remove('display-none');})
         buttonRandom.classList.add('check'); 
         buttonRandom.disabled = true;
-        mediumButton.disabled = false  
-        easyButton.disabled = false   
-        hardButton.disabled = false 
         mediumEasyButton.disabled = true   
-        easyHardButton.disabled = false   
                         
         let arr =[]
                     
@@ -345,6 +353,7 @@ function levelGame(){
         var i=-1
     //открываем карты
         document.getElementsByClassName('pack-medium-easy')[0].addEventListener("click", () => {
+            tracker()
         document.getElementsByClassName('face')[0].classList.remove('display-none')
         const img = new Image();
         if(i == random.length-1){i=random.length-1
@@ -359,6 +368,16 @@ function levelGame(){
                 
     //включаем среднюю игру
     mediumButton.addEventListener("click", ()=>{ //нажав на кнопку  - средние
+        firstCard.classList.add('clicked')
+        document.getElementsByClassName('green1')[0].innerHTML=1;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+        document.getElementsByClassName('green2')[0].innerHTML=2;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+        document.getElementsByClassName('green3')[0].innerHTML=2;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+        document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+        document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+        document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+        document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+        document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+        document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML        
     text.classList.add('display-none')
     document.getElementsByClassName('face')[0].classList.add('display-none')
     document.getElementsByClassName('pack')[0].style.display = 'none'
@@ -377,11 +396,6 @@ function levelGame(){
     easyHardButton.classList.remove('check')
     mediumEasyButton.classList.remove('check')
     buttonRandom.disabled = false;
-    easyButton.disabled = false
-    mediumButton.disabled = false
-    hardButton.disabled = false
-    easyHardButton.disabled = false
-    mediumEasyButton.disabled = false
                     
     //нажимаем на кнопку замешать
     buttonRandom.addEventListener("click",()=>{
@@ -394,10 +408,6 @@ function levelGame(){
     packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
     mediumButton.disabled = true; 
     buttonRandom.disabled = true;  
-    easyButton.disabled = false 
-    hardButton.disabled = false 
-    easyHardButton.disabled = false  
-    mediumEasyButton.disabled = false 
                 
     let arr =[]
                     
@@ -426,6 +436,7 @@ function levelGame(){
     var i=-1
     //открываем карты
     document.getElementsByClassName('pack1')[0].addEventListener("click", () => {
+        tracker()
     document.getElementsByClassName('face')[0].classList.remove('display-none')  
     const img = new Image();
     if(i == random.length-1){i=random.length-1
@@ -440,6 +451,16 @@ function levelGame(){
                 
     //включаем просто сложную игру
     easyHardButton.addEventListener("click", ()=>{ //нажав на кнопку  - очень сложно
+        firstCard.classList.add('clicked')
+        document.getElementsByClassName('green1')[0].innerHTML=1;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+        document.getElementsByClassName('green2')[0].innerHTML=2;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+        document.getElementsByClassName('green3')[0].innerHTML=2;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+        document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+        document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+        document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+        document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+        document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+        document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML        
     text.classList.add('display-none')
     const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult !== 'easy');//фильтруем сложные
     const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult !== 'easy');
@@ -458,11 +479,6 @@ function levelGame(){
     easyHardButton.classList.add('check')
     mediumEasyButton.classList.remove('check')
     buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-    easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-    mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-    hardButton.disabled = false
-    easyHardButton.disabled = false
-    mediumEasyButton.disabled = false
                 
      //нажимаем на кнопку замешать
     buttonRandom.addEventListener("click", ()=>{
@@ -474,10 +490,6 @@ function levelGame(){
     packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
     buttonRandom.classList.add('check'); 
     buttonRandom.disabled = true;
-    mediumButton.disabled = false  
-    easyButton.disabled = false   
-    hardButton.disabled = false 
-    mediumEasyButton.disabled = false   
     easyHardButton.disabled = true   
                   
     let arr =[]
@@ -507,6 +519,7 @@ function levelGame(){
     var i=-1
     //открываем карты
     document.getElementsByClassName('pack-easy-hard')[0].addEventListener("click", () => {
+        tracker()
     document.getElementsByClassName('face')[0].classList.remove('display-none')
     const img = new Image();
     if(i == random.length-1){i=random.length-1
@@ -521,6 +534,16 @@ function levelGame(){
                 
     //включаем очень сложную игру
     hardButton.addEventListener("click", ()=>{ //нажав на кнопку  - очень сложно
+        firstCard.classList.add('clicked')
+        document.getElementsByClassName('green1')[0].innerHTML=1;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+        document.getElementsByClassName('green2')[0].innerHTML=2;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+        document.getElementsByClassName('green3')[0].innerHTML=2;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+        document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+        document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+        document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+        document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+        document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+        document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML        
     text.classList.add('display-none')
     const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult === 'hard');//фильтруем сложные
     const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult === 'hard');
@@ -539,11 +562,6 @@ function levelGame(){
     easyHardButton.classList.remove('check')
     mediumEasyButton.classList.remove('check')
     buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-    easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-    mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-    hardButton.disabled = false
-    easyHardButton.disabled = false
-    mediumEasyButton.disabled = false
                 
     //проверяем хватает ли карт
     if(easyBlue.length<=sumBlue){//проверяем хватает ли синих карт
@@ -584,11 +602,7 @@ function levelGame(){
         packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
         buttonRandom.classList.add('check'); 
         buttonRandom.disabled = true;
-        mediumButton.disabled = false  
-        easyButton.disabled = false   
         hardButton.disabled = true 
-        mediumEasyButton.disabled = false   
-        easyHardButton.disabled = false    
        
         let arr =[]
                     
@@ -617,6 +631,7 @@ function levelGame(){
         var i=-1
     //открываем карты
         document.getElementsByClassName('pack-hard')[0].addEventListener("click", () => {
+            tracker()
         document.getElementsByClassName('face')[0].classList.remove('display-none')
         const img = new Image();
         if(i == random.length-1){i=random.length-1
@@ -640,6 +655,7 @@ levelGame()
 
 //вкючаем второго старца (!!!готово)
 secondCard.addEventListener("click", ()=> {
+    if(secondCard .classList.contains('clicked')){secondElder()}
     document.querySelector('.one-card').style.display = 'none';
     document.querySelector('.two-card').style.display = 'block';
     document.querySelector('.three-card').style.display = 'none';
@@ -667,24 +683,15 @@ secondCard.addEventListener("click", ()=> {
     thirdCard.classList.remove('check')
     fourCard.classList.remove('check')
     
-    document.getElementsByClassName('green1')[0].innerHTML=0
-    let green1 = document.getElementsByClassName('green1')[0].innerHTML
-    document.getElementsByClassName('green2')[0].innerHTML=1
-    let green2 = document.getElementsByClassName('green2')[0].innerHTML
-    document.getElementsByClassName('green3')[0].innerHTML=3
-    let green3 = document.getElementsByClassName('green3')[0].innerHTML
-    document.getElementsByClassName('brown1')[0].innerHTML=2
-    let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
-    document.getElementsByClassName('brown2')[0].innerHTML=3
-    let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
-    document.getElementsByClassName('brown3')[0].innerHTML=4
-    let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
-    document.getElementsByClassName('blue1')[0].innerHTML=2
-    let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
-    document.getElementsByClassName('blue2')[0].innerHTML=0
-    let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
-    document.getElementsByClassName('blue3')[0].innerHTML=0
-    let blue3 = document.getElementsByClassName('blue3')[0].innerHTML
+    document.getElementsByClassName('green1')[0].innerHTML=0;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+    document.getElementsByClassName('green2')[0].innerHTML=1;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+    document.getElementsByClassName('green3')[0].innerHTML=3;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+    document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+    document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+    document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+    document.getElementsByClassName('blue1')[0].innerHTML=2;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+    document.getElementsByClassName('blue2')[0].innerHTML=0;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+    document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML
 
 //тусуем все синие
     randomBlue()          
@@ -711,6 +718,16 @@ function levelGame(){
 
     //включаем очень легкую игру
         easyButton.addEventListener("click", ()=>{ //нажав на кнопку  - легкие
+            secondCard.classList.add('clicked')
+            document.getElementsByClassName('green1')[0].innerHTML=0;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+            document.getElementsByClassName('green2')[0].innerHTML=1;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+            document.getElementsByClassName('green3')[0].innerHTML=3;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+            document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+            document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+            document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+            document.getElementsByClassName('blue1')[0].innerHTML=2;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+            document.getElementsByClassName('blue2')[0].innerHTML=0;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+            document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML            
         text.classList.add('display-none')
         const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult === 'easy');//фильтруем легке
         const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult === 'easy');
@@ -729,11 +746,6 @@ function levelGame(){
         easyHardButton.classList.remove('check')
         mediumEasyButton.classList.remove('check')
         buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-        easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-        mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-        hardButton.disabled = false//
-        easyHardButton.disabled = false
-        mediumEasyButton.disabled = false
                 
     //проверяем хватает ли карт
         if(easyBlue.length<=sumBlue){//проверяем хватает ли синих карт
@@ -774,10 +786,6 @@ function levelGame(){
         packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
         buttonRandom.classList.add('check'); 
         buttonRandom.disabled = true;
-        mediumButton.disabled = false  
-        hardButton.disabled = false
-        easyHardButton.disabled = false
-        mediumEasyButton.disabled = false   
         easyButton.disabled = true       
                         
     let arr =[]
@@ -807,6 +815,7 @@ function levelGame(){
         var i=-1
     //открываем карты
         document.getElementsByClassName('pack')[1].addEventListener("click", () => {
+            tracker()
         document.getElementsByClassName('face')[1].classList.remove('display-none')
         const img = new Image();
         if(i == random.length-1){i=random.length-1
@@ -821,6 +830,16 @@ function levelGame(){
                 
     //включаем просто легкую игру
         mediumEasyButton.addEventListener("click", ()=>{ //нажав на кнопку 
+            secondCard.classList.add('clicked')
+            document.getElementsByClassName('green1')[0].innerHTML=0;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+            document.getElementsByClassName('green2')[0].innerHTML=1;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+            document.getElementsByClassName('green3')[0].innerHTML=3;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+            document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+            document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+            document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+            document.getElementsByClassName('blue1')[0].innerHTML=2;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+            document.getElementsByClassName('blue2')[0].innerHTML=0;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+            document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML            
         text.classList.add('display-none')
         const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult !== 'hard');//фильтруем сложные
         const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult !== 'hard');
@@ -839,11 +858,6 @@ function levelGame(){
         easyHardButton.classList.remove('check')
         mediumEasyButton.classList.add('check')
         buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-        easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-        mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-        hardButton.disabled = false
-        easyHardButton.disabled = false
-        mediumEasyButton.disabled = false
                 
     //нажимаем на кнопку замешать
         buttonRandom.addEventListener("click", ()=>{
@@ -855,11 +869,7 @@ function levelGame(){
         packCardMediumEasy.forEach(packCard => {packCard.classList.remove('display-none');})
         buttonRandom.classList.add('check'); 
         buttonRandom.disabled = true;
-        mediumButton.disabled = false  
-        easyButton.disabled = false   
-        hardButton.disabled = false 
         mediumEasyButton.disabled = true   
-        easyHardButton.disabled = false   
                         
         let arr =[]
                     
@@ -888,6 +898,7 @@ function levelGame(){
         var i=-1
     //открываем карты
         document.getElementsByClassName('pack-medium-easy')[1].addEventListener("click", () => {
+            tracker()
         document.getElementsByClassName('face')[1].classList.remove('display-none')
         const img = new Image();
         if(i == random.length-1){i=random.length-1
@@ -902,6 +913,16 @@ function levelGame(){
                 
     //включаем среднюю игру
     mediumButton.addEventListener("click", ()=>{ //нажав на кнопку  - средние
+        secondCard.classList.add('clicked')
+        document.getElementsByClassName('green1')[0].innerHTML=0;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+        document.getElementsByClassName('green2')[0].innerHTML=1;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+        document.getElementsByClassName('green3')[0].innerHTML=3;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+        document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+        document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+        document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+        document.getElementsByClassName('blue1')[0].innerHTML=2;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+        document.getElementsByClassName('blue2')[0].innerHTML=0;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+        document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML        
     text.classList.add('display-none')
     document.getElementsByClassName('face')[1].classList.add('display-none')
     document.getElementsByClassName('pack')[1].style.display = 'none'
@@ -920,11 +941,6 @@ function levelGame(){
     easyHardButton.classList.remove('check')
     mediumEasyButton.classList.remove('check')
     buttonRandom.disabled = false;
-    easyButton.disabled = false
-    mediumButton.disabled = false
-    hardButton.disabled = false
-    easyHardButton.disabled = false
-    mediumEasyButton.disabled = false
                     
     //нажимаем на кнопку замешать
     buttonRandom.addEventListener("click",()=>{
@@ -937,10 +953,6 @@ function levelGame(){
     packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
     mediumButton.disabled = true; 
     buttonRandom.disabled = true;  
-    easyButton.disabled = false 
-    hardButton.disabled = false 
-    easyHardButton.disabled = false  
-    mediumEasyButton.disabled = false 
                 
     let arr =[]
                     
@@ -969,6 +981,7 @@ function levelGame(){
     var i=-1
     //открываем карты
     document.getElementsByClassName('pack1')[1].addEventListener("click", () => {
+        tracker()
     document.getElementsByClassName('face')[1].classList.remove('display-none')  
     const img = new Image();
     if(i == random.length-1){i=random.length-1
@@ -983,6 +996,16 @@ function levelGame(){
                 
     //включаем просто сложную игру
     easyHardButton.addEventListener("click", ()=>{ //нажав на кнопку  - очень сложно
+        secondCard.classList.add('clicked')
+        document.getElementsByClassName('green1')[0].innerHTML=0;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+        document.getElementsByClassName('green2')[0].innerHTML=1;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+        document.getElementsByClassName('green3')[0].innerHTML=3;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+        document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+        document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+        document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+        document.getElementsByClassName('blue1')[0].innerHTML=2;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+        document.getElementsByClassName('blue2')[0].innerHTML=0;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+        document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML        
     text.classList.add('display-none')
     const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult !== 'easy');//фильтруем сложные
     const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult !== 'easy');
@@ -1001,11 +1024,6 @@ function levelGame(){
     easyHardButton.classList.add('check')
     mediumEasyButton.classList.remove('check')
     buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-    easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-    mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-    hardButton.disabled = false
-    easyHardButton.disabled = false
-    mediumEasyButton.disabled = false
                 
      //нажимаем на кнопку замешать
     buttonRandom.addEventListener("click", ()=>{
@@ -1017,10 +1035,6 @@ function levelGame(){
     packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
     buttonRandom.classList.add('check'); 
     buttonRandom.disabled = true;
-    mediumButton.disabled = false  
-    easyButton.disabled = false   
-    hardButton.disabled = false 
-    mediumEasyButton.disabled = false   
     easyHardButton.disabled = true   
                   
     let arr =[]
@@ -1050,6 +1064,7 @@ function levelGame(){
     var i=-1
     //открываем карты
     document.getElementsByClassName('pack-easy-hard')[1].addEventListener("click", () => {
+        tracker()
     document.getElementsByClassName('face')[1].classList.remove('display-none')
     const img = new Image();
     if(i == random.length-1){i=random.length-1
@@ -1064,6 +1079,16 @@ function levelGame(){
                 
     //включаем очень сложную игру
     hardButton.addEventListener("click", ()=>{ //нажав на кнопку  - очень сложно
+        secondCard.classList.add('clicked')
+        document.getElementsByClassName('green1')[0].innerHTML=0;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+        document.getElementsByClassName('green2')[0].innerHTML=1;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+        document.getElementsByClassName('green3')[0].innerHTML=3;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+        document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+        document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+        document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+        document.getElementsByClassName('blue1')[0].innerHTML=2;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+        document.getElementsByClassName('blue2')[0].innerHTML=0;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+        document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML        
     text.classList.add('display-none')
     const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult === 'hard');//фильтруем сложные
     const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult === 'hard');
@@ -1082,11 +1107,6 @@ function levelGame(){
     easyHardButton.classList.remove('check')
     mediumEasyButton.classList.remove('check')
     buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-    easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-    mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-    hardButton.disabled = false
-    easyHardButton.disabled = false
-    mediumEasyButton.disabled = false
                 
     //проверяем хватает ли карт
     if(easyBlue.length<=sumBlue){//проверяем хватает ли синих карт
@@ -1127,11 +1147,7 @@ function levelGame(){
         packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
         buttonRandom.classList.add('check'); 
         buttonRandom.disabled = true;
-        mediumButton.disabled = false  
-        easyButton.disabled = false   
         hardButton.disabled = true 
-        mediumEasyButton.disabled = false   
-        easyHardButton.disabled = false    
        
         let arr =[]
                     
@@ -1160,6 +1176,7 @@ function levelGame(){
         var i=-1
     //открываем карты
         document.getElementsByClassName('pack-hard')[1].addEventListener("click", () => {
+            tracker()
         document.getElementsByClassName('face')[1].classList.remove('display-none')
         const img = new Image();
         if(i == random.length-1){i=random.length-1
@@ -1183,6 +1200,7 @@ levelGame()
 
 //включаем третьего старца(!!!готово)
 thirdCard.addEventListener("click", () => {
+    if(thirdCard .classList.contains('clicked')){thirdElder()}
     document.querySelector('.one-card').style.display = 'none';
     document.querySelector('.two-card').style.display = 'none';
     document.querySelector('.three-card').style.display = 'block';
@@ -1210,24 +1228,15 @@ thirdCard.addEventListener("click", () => {
     thirdCard.classList.add('check')
     fourCard.classList.remove('check')
     
-    document.getElementsByClassName('green1')[0].innerHTML=0
-    let green1 = document.getElementsByClassName('green1')[0].innerHTML
-    document.getElementsByClassName('green2')[0].innerHTML=2
-    let green2 = document.getElementsByClassName('green2')[0].innerHTML
-    document.getElementsByClassName('green3')[0].innerHTML=3
-    let green3 = document.getElementsByClassName('green3')[0].innerHTML
-    document.getElementsByClassName('brown1')[0].innerHTML=2
-    let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
-    document.getElementsByClassName('brown2')[0].innerHTML=3
-    let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
-    document.getElementsByClassName('brown3')[0].innerHTML=4
-    let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
-    document.getElementsByClassName('blue1')[0].innerHTML=1
-    let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
-    document.getElementsByClassName('blue2')[0].innerHTML=1
-    let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
-    document.getElementsByClassName('blue3')[0].innerHTML=0
-    let blue3 = document.getElementsByClassName('blue3')[0].innerHTML
+    document.getElementsByClassName('green1')[0].innerHTML=0;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+    document.getElementsByClassName('green2')[0].innerHTML=2;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+    document.getElementsByClassName('green3')[0].innerHTML=3;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+    document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+    document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+    document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+    document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+    document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+    document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML
 
 //тусуем все синие
     randomBlue()          
@@ -1254,6 +1263,16 @@ function levelGame(){
 
     //включаем очень легкую игру
         easyButton.addEventListener("click", ()=>{ //нажав на кнопку  - легкие
+            thirdCard.classList.add('clicked')
+            document.getElementsByClassName('green1')[0].innerHTML=0;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+            document.getElementsByClassName('green2')[0].innerHTML=2;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+            document.getElementsByClassName('green3')[0].innerHTML=3;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+            document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+            document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+            document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+            document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+            document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+            document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML            
         const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult === 'easy');//фильтруем легке
         const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult === 'easy');
         const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult === 'easy');
@@ -1271,11 +1290,6 @@ function levelGame(){
         easyHardButton.classList.remove('check')
         mediumEasyButton.classList.remove('check')
         buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-        easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-        mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-        hardButton.disabled = false//
-        easyHardButton.disabled = false
-        mediumEasyButton.disabled = false
                 
     //проверяем хватает ли карт
         if(easyBlue.length<=sumBlue){//проверяем хватает ли синих карт
@@ -1315,10 +1329,6 @@ function levelGame(){
         packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
         buttonRandom.classList.add('check'); 
         buttonRandom.disabled = true;
-        mediumButton.disabled = false  
-        hardButton.disabled = false
-        easyHardButton.disabled = false
-        mediumEasyButton.disabled = false   
         easyButton.disabled = true       
                         
     let arr =[]
@@ -1348,6 +1358,7 @@ function levelGame(){
         var i=-1
     //открываем карты
         document.getElementsByClassName('pack')[2].addEventListener("click", () => {
+            tracker()
         document.getElementsByClassName('face')[2].classList.remove('display-none')
         const img = new Image();
         if(i == random.length-1){i=random.length-1
@@ -1356,12 +1367,22 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[2].style.backgroundImage = url}
         })
-        console.log(random)
+        text.textContent=random.map(u => u.colour).join(', ')
     })
     }) 
                 
     //включаем просто легкую игру
         mediumEasyButton.addEventListener("click", ()=>{ //нажав на кнопку 
+            thirdCard.classList.add('clicked')
+            document.getElementsByClassName('green1')[0].innerHTML=0;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+            document.getElementsByClassName('green2')[0].innerHTML=2;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+            document.getElementsByClassName('green3')[0].innerHTML=3;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+            document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+            document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+            document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+            document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+            document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+            document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML            
         const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult !== 'hard');//фильтруем сложные
         const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult !== 'hard');
         const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult !== 'hard');
@@ -1379,11 +1400,6 @@ function levelGame(){
         easyHardButton.classList.remove('check')
         mediumEasyButton.classList.add('check')
         buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-        easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-        mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-        hardButton.disabled = false
-        easyHardButton.disabled = false
-        mediumEasyButton.disabled = false
                 
     //нажимаем на кнопку замешать
         buttonRandom.addEventListener("click", ()=>{
@@ -1394,11 +1410,7 @@ function levelGame(){
         packCardMediumEasy.forEach(packCard => {packCard.classList.remove('display-none');})
         buttonRandom.classList.add('check'); 
         buttonRandom.disabled = true;
-        mediumButton.disabled = false  
-        easyButton.disabled = false   
-        hardButton.disabled = false 
         mediumEasyButton.disabled = true   
-        easyHardButton.disabled = false   
                         
         let arr =[]
                     
@@ -1427,6 +1439,7 @@ function levelGame(){
         var i=-1
     //открываем карты
         document.getElementsByClassName('pack-medium-easy')[2].addEventListener("click", () => {
+            tracker()
         document.getElementsByClassName('face')[2].classList.remove('display-none')
         const img = new Image();
         if(i == random.length-1){i=random.length-1
@@ -1435,12 +1448,22 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[2].style.backgroundImage = url}
         })
-        console.log(random)
+        text.textContent=random.map(u => u.colour).join(', ')
         })
     }) 
                 
     //включаем среднюю игру
     mediumButton.addEventListener("click", ()=>{ //нажав на кнопку  - средние
+        thirdCard.classList.add('clicked')
+        document.getElementsByClassName('green1')[0].innerHTML=0;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+        document.getElementsByClassName('green2')[0].innerHTML=2;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+        document.getElementsByClassName('green3')[0].innerHTML=3;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+        document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+        document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+        document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+        document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+        document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+        document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML        
     document.getElementsByClassName('face')[2].classList.add('display-none')
     document.getElementsByClassName('pack')[2].style.display = 'none'
     document.getElementsByClassName('pack1')[2].style.display = 'block'
@@ -1458,11 +1481,6 @@ function levelGame(){
     easyHardButton.classList.remove('check')
     mediumEasyButton.classList.remove('check')
     buttonRandom.disabled = false;
-    easyButton.disabled = false
-    mediumButton.disabled = false
-    hardButton.disabled = false
-    easyHardButton.disabled = false
-    mediumEasyButton.disabled = false
                     
     //нажимаем на кнопку замешать
     buttonRandom.addEventListener("click",()=>{
@@ -1474,10 +1492,6 @@ function levelGame(){
     packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
     mediumButton.disabled = true; 
     buttonRandom.disabled = true;  
-    easyButton.disabled = false 
-    hardButton.disabled = false 
-    easyHardButton.disabled = false  
-    mediumEasyButton.disabled = false 
                 
     let arr =[]
                     
@@ -1506,6 +1520,7 @@ function levelGame(){
     var i=-1
     //открываем карты
     document.getElementsByClassName('pack1')[2].addEventListener("click", () => {
+        tracker()
     document.getElementsByClassName('face')[2].classList.remove('display-none')  
     const img = new Image();
     if(i == random.length-1){i=random.length-1
@@ -1514,12 +1529,22 @@ function levelGame(){
     let url = `url(${img.src})`
     img.onload = () => {document.getElementsByClassName('face')[2].style.backgroundImage = url}
     })
-    console.log(random)      
+    text.textContent=random.map(u => u.colour).join(', ')
     })
     })  
                 
     //включаем просто сложную игру
     easyHardButton.addEventListener("click", ()=>{ //нажав на кнопку  - очень сложно
+        thirdCard.classList.add('clicked')
+        document.getElementsByClassName('green1')[0].innerHTML=0;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+        document.getElementsByClassName('green2')[0].innerHTML=2;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+        document.getElementsByClassName('green3')[0].innerHTML=3;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+        document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+        document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+        document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+        document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+        document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+        document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML        
     const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult !== 'easy');//фильтруем сложные
     const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult !== 'easy');
     const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult !== 'easy');
@@ -1537,11 +1562,6 @@ function levelGame(){
     easyHardButton.classList.add('check')
     mediumEasyButton.classList.remove('check')
     buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-    easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-    mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-    hardButton.disabled = false
-    easyHardButton.disabled = false
-    mediumEasyButton.disabled = false
                 
      //нажимаем на кнопку замешать
     buttonRandom.addEventListener("click", ()=>{
@@ -1552,10 +1572,6 @@ function levelGame(){
     packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
     buttonRandom.classList.add('check'); 
     buttonRandom.disabled = true;
-    mediumButton.disabled = false  
-    easyButton.disabled = false   
-    hardButton.disabled = false 
-    mediumEasyButton.disabled = false   
     easyHardButton.disabled = true   
                   
     let arr =[]
@@ -1585,6 +1601,7 @@ function levelGame(){
     var i=-1
     //открываем карты
     document.getElementsByClassName('pack-easy-hard')[2].addEventListener("click", () => {
+        tracker()
     document.getElementsByClassName('face')[2].classList.remove('display-none')
     const img = new Image();
     if(i == random.length-1){i=random.length-1
@@ -1593,12 +1610,22 @@ function levelGame(){
     let url = `url(${img.src})`
     img.onload = () => {document.getElementsByClassName('face')[2].style.backgroundImage = url}
     })
-    console.log(random)
+    text.textContent=random.map(u => u.colour).join(', ')
     })
     }) 
                 
     //включаем очень сложную игру
     hardButton.addEventListener("click", ()=>{ //нажав на кнопку  - очень сложно
+        thirdCard.classList.add('clicked')
+        document.getElementsByClassName('green1')[0].innerHTML=0;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+        document.getElementsByClassName('green2')[0].innerHTML=2;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+        document.getElementsByClassName('green3')[0].innerHTML=3;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+        document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+        document.getElementsByClassName('brown2')[0].innerHTML=3;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+        document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+        document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+        document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+        document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML        
     const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult === 'hard');//фильтруем сложные
     const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult === 'hard');
     const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult === 'hard');
@@ -1616,11 +1643,6 @@ function levelGame(){
     easyHardButton.classList.remove('check')
     mediumEasyButton.classList.remove('check')
     buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-    easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-    mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-    hardButton.disabled = false
-    easyHardButton.disabled = false
-    mediumEasyButton.disabled = false
                 
     //проверяем хватает ли карт
     if(easyBlue.length<=sumBlue){//проверяем хватает ли синих карт
@@ -1660,11 +1682,7 @@ function levelGame(){
         packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
         buttonRandom.classList.add('check'); 
         buttonRandom.disabled = true;
-        mediumButton.disabled = false  
-        easyButton.disabled = false   
         hardButton.disabled = true 
-        mediumEasyButton.disabled = false   
-        easyHardButton.disabled = false    
        
         let arr =[]
                     
@@ -1693,6 +1711,7 @@ function levelGame(){
         var i=-1
     //открываем карты
         document.getElementsByClassName('pack-hard')[2].addEventListener("click", () => {
+            tracker()
         document.getElementsByClassName('face')[2].classList.remove('display-none')
         const img = new Image();
         if(i == random.length-1){i=random.length-1
@@ -1701,7 +1720,7 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[2].style.backgroundImage = url}
         })
-        console.log(random)
+        text.textContent=random.map(u => u.colour).join(', ')
     })
     }) 
 }
@@ -1713,9 +1732,33 @@ levelGame()
     const sumGreen = q().sumGreen
 })
 
+function firstElder() {
+    if (confirm('Чтобы снова вернуться к первому старцу - необходимо перезагрузить страницу!') == true) {
+        location.reload ();
+    }
+}
+function secondElder() {
+    if (confirm('Чтобы снова вернуться ко второму старцу - необходимо перезагрузить страницу!') == true) {
+        location.reload ();
+    }
+}
+function thirdElder() {
+    if (confirm('Чтобы снова вернуться к третьему старцу - необходимо перезагрузить страницу!') == true) {
+        location.reload ();
+    }
+}
+function fourElder() {
+    if (confirm('Чтобы снова вернуться к четвертому старцу - необходимо перезагрузить страницу!') == true) {
+        location.reload ();
+    }
+}
+
+
+
 //включаем четвертого старца(!!!готово)
 fourCard.addEventListener("click", () => {
-    document.querySelector('.one-card').style.display = 'none';
+    if(fourCard.classList.contains('clicked')){fourElder()}
+    else{document.querySelector('.one-card').style.display = 'none';
     document.querySelector('.two-card').style.display = 'none';
     document.querySelector('.three-card').style.display = 'none';
     document.querySelector('.four-card').style.display = 'block';
@@ -1742,24 +1785,15 @@ fourCard.addEventListener("click", () => {
     thirdCard.classList.remove('check')
     fourCard.classList.add('check')
     
-    document.getElementsByClassName('green1')[0].innerHTML=1
-    let green1 = document.getElementsByClassName('green1')[0].innerHTML
-    document.getElementsByClassName('green2')[0].innerHTML=3
-    let green2 = document.getElementsByClassName('green2')[0].innerHTML
-    document.getElementsByClassName('green3')[0].innerHTML=2
-    let green3 = document.getElementsByClassName('green3')[0].innerHTML
-    document.getElementsByClassName('brown1')[0].innerHTML=2
-    let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
-    document.getElementsByClassName('brown2')[0].innerHTML=2
-    let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
-    document.getElementsByClassName('brown3')[0].innerHTML=4
-    let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
-    document.getElementsByClassName('blue1')[0].innerHTML=1
-    let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
-    document.getElementsByClassName('blue2')[0].innerHTML=1
-    let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
-    document.getElementsByClassName('blue3')[0].innerHTML=0
-    let blue3 = document.getElementsByClassName('blue3')[0].innerHTML
+    document.getElementsByClassName('green1')[0].innerHTML=1;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+    document.getElementsByClassName('green2')[0].innerHTML=3;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+    document.getElementsByClassName('green3')[0].innerHTML=2;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+    document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+    document.getElementsByClassName('brown2')[0].innerHTML=2;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+    document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+    document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+    document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+    document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML
 
 //тусуем все синие
     randomBlue()          
@@ -1782,10 +1816,18 @@ function q(){
     button.classList.remove('display-none');})
 
 //уровни игры        
-function levelGame(){        
-
     //включаем очень легкую игру
         easyButton.addEventListener("click", ()=>{ //нажав на кнопку  - легкие
+            fourCard.classList.add('clicked')
+            document.getElementsByClassName('green1')[0].innerHTML=1;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+            document.getElementsByClassName('green2')[0].innerHTML=3;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+            document.getElementsByClassName('green3')[0].innerHTML=2;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+            document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+            document.getElementsByClassName('brown2')[0].innerHTML=2;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+            document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+            document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+            document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+            document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML            
         const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult === 'easy');//фильтруем легке
         const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult === 'easy');
         const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult === 'easy');
@@ -1803,11 +1845,6 @@ function levelGame(){
         easyHardButton.classList.remove('check')
         mediumEasyButton.classList.remove('check')
         buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-        easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-        mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-        hardButton.disabled = false//
-        easyHardButton.disabled = false
-        mediumEasyButton.disabled = false
                 
     //проверяем хватает ли карт
         if(easyBlue.length<=sumBlue){//проверяем хватает ли синих карт
@@ -1847,10 +1884,6 @@ function levelGame(){
         packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
         buttonRandom.classList.add('check'); 
         buttonRandom.disabled = true;
-        mediumButton.disabled = false  
-        hardButton.disabled = false
-        easyHardButton.disabled = false
-        mediumEasyButton.disabled = false   
         easyButton.disabled = true       
                         
     let arr =[]
@@ -1880,6 +1913,7 @@ function levelGame(){
         var i=-1
     //открываем карты
         document.getElementsByClassName('pack')[3].addEventListener("click", () => {
+            tracker()
         document.getElementsByClassName('face')[3].classList.remove('display-none')
         const img = new Image();
         if(i == random.length-1){i=random.length-1
@@ -1888,12 +1922,22 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[3].style.backgroundImage = url}
         })
-        console.log(random)
-    })
+        text.textContent=random.map(u => u.colour).join(', ')
+        })
     }) 
                 
     //включаем просто легкую игру
         mediumEasyButton.addEventListener("click", ()=>{ //нажав на кнопку 
+            fourCard.classList.add('clicked')
+            document.getElementsByClassName('green1')[0].innerHTML=1;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+            document.getElementsByClassName('green2')[0].innerHTML=3;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+            document.getElementsByClassName('green3')[0].innerHTML=2;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+            document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+            document.getElementsByClassName('brown2')[0].innerHTML=2;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+            document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+            document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+            document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+            document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML            
         const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult !== 'hard');//фильтруем сложные
         const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult !== 'hard');
         const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult !== 'hard');
@@ -1911,11 +1955,6 @@ function levelGame(){
         easyHardButton.classList.remove('check')
         mediumEasyButton.classList.add('check')
         buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-        easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-        mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-        hardButton.disabled = false
-        easyHardButton.disabled = false
-        mediumEasyButton.disabled = false
                 
     //нажимаем на кнопку замешать
         buttonRandom.addEventListener("click", ()=>{
@@ -1926,11 +1965,7 @@ function levelGame(){
         packCardMediumEasy.forEach(packCard => {packCard.classList.remove('display-none');})
         buttonRandom.classList.add('check'); 
         buttonRandom.disabled = true;
-        mediumButton.disabled = false  
-        easyButton.disabled = false   
-        hardButton.disabled = false 
         mediumEasyButton.disabled = true   
-        easyHardButton.disabled = false   
                         
         let arr =[]
                     
@@ -1959,6 +1994,7 @@ function levelGame(){
         var i=-1
     //открываем карты
         document.getElementsByClassName('pack-medium-easy')[3].addEventListener("click", () => {
+            tracker()
         document.getElementsByClassName('face')[3].classList.remove('display-none')
         const img = new Image();
         if(i == random.length-1){i=random.length-1
@@ -1967,12 +2003,22 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[3].style.backgroundImage = url}
         })
-        console.log(random)
-        })
+        text.textContent=random.map(u => u.colour).join(', ')
+      })
     }) 
                 
     //включаем среднюю игру
     mediumButton.addEventListener("click", ()=>{ //нажав на кнопку  - средние
+        fourCard.classList.add('clicked')
+        document.getElementsByClassName('green1')[0].innerHTML=1;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+        document.getElementsByClassName('green2')[0].innerHTML=3;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+        document.getElementsByClassName('green3')[0].innerHTML=2;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+        document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+        document.getElementsByClassName('brown2')[0].innerHTML=2;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+        document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+        document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+        document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+        document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML        
     document.getElementsByClassName('face')[3].classList.add('display-none')
     document.getElementsByClassName('pack')[3].style.display = 'none'
     document.getElementsByClassName('pack1')[3].style.display = 'block'
@@ -1990,11 +2036,6 @@ function levelGame(){
     easyHardButton.classList.remove('check')
     mediumEasyButton.classList.remove('check')
     buttonRandom.disabled = false;
-    easyButton.disabled = false
-    mediumButton.disabled = false
-    hardButton.disabled = false
-    easyHardButton.disabled = false
-    mediumEasyButton.disabled = false
                     
     //нажимаем на кнопку замешать
     buttonRandom.addEventListener("click",()=>{
@@ -2006,10 +2047,6 @@ function levelGame(){
     packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
     mediumButton.disabled = true; 
     buttonRandom.disabled = true;  
-    easyButton.disabled = false 
-    hardButton.disabled = false 
-    easyHardButton.disabled = false  
-    mediumEasyButton.disabled = false 
                 
     let arr =[]
                     
@@ -2038,6 +2075,7 @@ function levelGame(){
     var i=-1
     //открываем карты
     document.getElementsByClassName('pack1')[3].addEventListener("click", () => {
+        tracker()
     document.getElementsByClassName('face')[3].classList.remove('display-none')  
     const img = new Image();
     if(i == random.length-1){i=random.length-1
@@ -2046,12 +2084,22 @@ function levelGame(){
     let url = `url(${img.src})`
     img.onload = () => {document.getElementsByClassName('face')[3].style.backgroundImage = url}
     })
-    console.log(random)      
+    text.textContent=random.map(u => u.colour).join(', ')
     })
     })  
                 
     //включаем просто сложную игру
     easyHardButton.addEventListener("click", ()=>{ //нажав на кнопку  - очень сложно
+        fourCard.classList.add('clicked')
+        document.getElementsByClassName('green1')[0].innerHTML=1;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+        document.getElementsByClassName('green2')[0].innerHTML=3;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+        document.getElementsByClassName('green3')[0].innerHTML=2;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+        document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+        document.getElementsByClassName('brown2')[0].innerHTML=2;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+        document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+        document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+        document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+        document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML        
     const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult !== 'easy');//фильтруем сложные
     const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult !== 'easy');
     const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult !== 'easy');
@@ -2069,11 +2117,6 @@ function levelGame(){
     easyHardButton.classList.add('check')
     mediumEasyButton.classList.remove('check')
     buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-    easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-    mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-    hardButton.disabled = false
-    easyHardButton.disabled = false
-    mediumEasyButton.disabled = false
                 
      //нажимаем на кнопку замешать
     buttonRandom.addEventListener("click", ()=>{
@@ -2084,10 +2127,6 @@ function levelGame(){
     packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
     buttonRandom.classList.add('check'); 
     buttonRandom.disabled = true;
-    mediumButton.disabled = false  
-    easyButton.disabled = false   
-    hardButton.disabled = false 
-    mediumEasyButton.disabled = false   
     easyHardButton.disabled = true   
                   
     let arr =[]
@@ -2117,6 +2156,7 @@ function levelGame(){
     var i=-1
     //открываем карты
     document.getElementsByClassName('pack-easy-hard')[3].addEventListener("click", () => {
+        tracker()
     document.getElementsByClassName('face')[3].classList.remove('display-none')
     const img = new Image();
     if(i == random.length-1){i=random.length-1
@@ -2125,12 +2165,22 @@ function levelGame(){
     let url = `url(${img.src})`
     img.onload = () => {document.getElementsByClassName('face')[3].style.backgroundImage = url}
     })
-    console.log(random)
-    })
+    text.textContent=random.map(u => u.colour).join(', ')
+      })
     }) 
                 
     //включаем очень сложную игру
     hardButton.addEventListener("click", ()=>{ //нажав на кнопку  - очень сложно
+        fourCard.classList.add('clicked')
+        document.getElementsByClassName('green1')[0].innerHTML=1;let green1 = document.getElementsByClassName('green1')[0].innerHTML
+        document.getElementsByClassName('green2')[0].innerHTML=3;let green2 = document.getElementsByClassName('green2')[0].innerHTML
+        document.getElementsByClassName('green3')[0].innerHTML=2;let green3 = document.getElementsByClassName('green3')[0].innerHTML
+        document.getElementsByClassName('brown1')[0].innerHTML=2;let brown1 = document.getElementsByClassName('brown1')[0].innerHTML
+        document.getElementsByClassName('brown2')[0].innerHTML=2;let brown2 = document.getElementsByClassName('brown2')[0].innerHTML
+        document.getElementsByClassName('brown3')[0].innerHTML=4;let brown3 = document.getElementsByClassName('brown3')[0].innerHTML
+        document.getElementsByClassName('blue1')[0].innerHTML=1;let blue1 = document.getElementsByClassName('blue1')[0].innerHTML
+        document.getElementsByClassName('blue2')[0].innerHTML=1;let blue2 = document.getElementsByClassName('blue2')[0].innerHTML
+        document.getElementsByClassName('blue3')[0].innerHTML=0;let blue3 = document.getElementsByClassName('blue3')[0].innerHTML        
     const easyBlue = mysticcardsBlue.filter(mysticcardsBlue => mysticcardsBlue.difficult === 'hard');//фильтруем сложные
     const easyGreen = mysticcardsGreen.filter(mysticcardsGreen => mysticcardsGreen.difficult === 'hard');
     const easyBrown = mysticcardsBrown.filter(mysticcardsBrown => mysticcardsBrown.difficult === 'hard');
@@ -2148,11 +2198,6 @@ function levelGame(){
     easyHardButton.classList.remove('check')
     mediumEasyButton.classList.remove('check')
     buttonRandom.disabled = false;//делаем кликабельной кнопку для замешивания
-    easyButton.disabled = false//делаем кликабельной кнопку легкого уровня игры
-    mediumButton.disabled = false// делаем кликабельной кнопку среднего уровня игры
-    hardButton.disabled = false
-    easyHardButton.disabled = false
-    mediumEasyButton.disabled = false
                 
     //проверяем хватает ли карт
     if(easyBlue.length<=sumBlue){//проверяем хватает ли синих карт
@@ -2192,11 +2237,7 @@ function levelGame(){
         packCardMediumEasy.forEach(packCard => {packCard.classList.add('display-none');})
         buttonRandom.classList.add('check'); 
         buttonRandom.disabled = true;
-        mediumButton.disabled = false  
-        easyButton.disabled = false   
         hardButton.disabled = true 
-        mediumEasyButton.disabled = false   
-        easyHardButton.disabled = false    
        
         let arr =[]
                     
@@ -2225,6 +2266,7 @@ function levelGame(){
         var i=-1
     //открываем карты
         document.getElementsByClassName('pack-hard')[3].addEventListener("click", () => {
+            tracker()
         document.getElementsByClassName('face')[3].classList.remove('display-none')
         const img = new Image();
         if(i == random.length-1){i=random.length-1
@@ -2233,17 +2275,16 @@ function levelGame(){
         let url = `url(${img.src})`
         img.onload = () => {document.getElementsByClassName('face')[3].style.backgroundImage = url}
         })
-        console.log(random)
-    })
+        text.textContent=random.map(u => u.colour).join(', ')
+        })
     }) 
-}
-levelGame()
+
 
 //подсчет необходимого количества карт
     const sumBlue = q().sumBlue
     const sumBrown = q().sumBrown
     const sumGreen = q().sumGreen
-})
+}})
 
 
 

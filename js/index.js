@@ -2,6 +2,9 @@ import mysticcardsBlue from './mysticcardsBlue.js';
 import mysticcardsGreen from './mysticcardsGreen.js';
 import mysticcardsBrown from './mysticcardsBrown.js';
 
+console.log('Выполнено: километр кода, четыре старца, у каждого старца по 5 разных игр, трекер; Выполнено частично: перемешивание пока есть только на начальном этапе, при выкладывании карт пока рандом не сделан(((((')
+
+
 //фон
 function setBg(){
     const img = new Image();

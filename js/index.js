@@ -1752,22 +1752,22 @@ levelGame()
 })
 
 function firstElder() {
-    if (confirm('Чтобы снова вернуться к первому старцу - необходимо перезагрузить страницу!') == true) {
+    if (confirm('Хотите снова вернуться к первому старцу?') == true) {
         location.reload ();
     }
 }
 function secondElder() {
-    if (confirm('Чтобы снова вернуться ко второму старцу - необходимо перезагрузить страницу!') == true) {
+    if (confirm('Хотите снова вернуться ко второму старцу?') == true) {
         location.reload ();
     }
 }
 function thirdElder() {
-    if (confirm('Чтобы снова вернуться к третьему старцу - необходимо перезагрузить страницу!') == true) {
+    if (confirm('Хотите снова вернуться к третьему старцу?') == true) {
         location.reload ();
     }
 }
 function fourElder() {
-    if (confirm('Чтобы снова вернуться к четвертому старцу - необходимо перезагрузить страницу!') == true) {
+    if (confirm('Хотите снова вернуться к четвертому старцу?') == true) {
         location.reload ();
     }
 }

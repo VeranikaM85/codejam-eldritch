@@ -56,6 +56,22 @@ const thirdCard = document.getElementsByClassName('ancients')[2]
 const fourCard = document.getElementsByClassName('ancients')[3]
 secondCard.style.display='block'
 
+
+const again=document.querySelector('.play-again')
+again.addEventListener("click", () => {
+    location.reload ();})
+
+packCard.forEach(packCard => {
+    packCard.style.display='none';}) 
+packCard1.forEach(packCard => {
+    packCard.style.display='none';})   
+packCardHard.forEach(packCard => {
+    packCard.style.display='none';}) 
+packCardEasyHard.forEach(packCard => {
+    packCard.style.display='none';})  
+packCardMediumEasy.forEach(packCard => {
+    packCard.style.display='none';})  
+
 //тусуем все синие
 function randomBlue (){
     var currentIndexBlue = mysticcardsBlue.length, temporaryValue, randomIndex;

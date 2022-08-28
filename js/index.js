@@ -2279,7 +2279,6 @@ function q(){
         })
     }) 
 
-
 //подсчет необходимого количества карт
     const sumBlue = q().sumBlue
     const sumBrown = q().sumBrown
